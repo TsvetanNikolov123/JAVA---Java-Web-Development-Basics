@@ -1,5 +1,5 @@
-03 Exercises: Web Fundamentals Introduction
-===========================================
+03 Lab: Web Fundamentals Introduction
+=====================================
 
 ---
 ---
