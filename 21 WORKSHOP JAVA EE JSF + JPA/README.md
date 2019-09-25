@@ -1,8 +1,5 @@
-Java Web Development Basics
-===========================
-
-Java EE Workshop – JavaServer Faces
-===================================
+21 Workshop – JavaServer Faces
+==============================
 
 PANDA
 =====

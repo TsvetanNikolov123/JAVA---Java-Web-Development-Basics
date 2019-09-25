@@ -1,8 +1,5 @@
-25 Java Web Development Basics
-==============================
-
-Regular Exam
-============
+25 Regular Exam
+===============
 
 EXODIA
 ======

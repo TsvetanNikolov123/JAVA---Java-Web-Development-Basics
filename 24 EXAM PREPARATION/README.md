@@ -1,8 +1,5 @@
-24 Java Web Development Basics
-==============================
-
-Exam Preparation
-================
+24 Exam Preparation
+===================
 
 Casebook
 ========

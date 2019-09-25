@@ -1,8 +1,5 @@
-23 Java Web Development Basics
-==============================
-
-Exam Preparation
-================
+23 Exam Preparation
+===================
 
 Sboj.gb
 =======

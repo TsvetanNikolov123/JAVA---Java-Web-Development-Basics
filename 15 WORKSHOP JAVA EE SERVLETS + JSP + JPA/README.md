@@ -1,8 +1,5 @@
-Java Web Development Basics
-===========================
-
-Java EE Workshop – Servlets & JSP
-=================================
+15 Workshop – Servlets & JSP
+============================
 
 MeTube v.2
 ==========
