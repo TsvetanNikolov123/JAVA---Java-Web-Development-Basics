@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core"
+>
+
+<ui:include src="templates/head.xhtml"/>
+
+<h:body>
+    <ui:include src="templates/user-navbar.xhtml"/>
+
+    <main>
+        <h1 class="text-center mt-2"><span class="badge badge-pill badge-dark">Products</span></h1>
+        <hr class="hr-3"/>
+        <div class="bg-blur container w-50">
+            <div class="row mb-4 d-flex flex-column text-center">
+
+                <ui:repeat value="#{productListBean.productViewModels}" var="product" varStatus="status">
+                    <h:form>
+<!--                        <h:commandLink outcome="details-product?id=#{product.id}">-->
+                        <h:link outcome="details-product">
+                            <h:graphicImage library="img" name="#{product.imageName}.jpg"
+                                            class="img-thumbnail" width="200" height="200"/>
+                            <f:param name="productId" value="#{product.id}"/>
+                        </h:link>
+                    </h:form>
+                    <h5 class="text-center">#{product.name}</h5>
+                    <h2 class="text-center">#{product.price}</h2>
+                </ui:repeat>
+
+            </div>
+        </div>
+    </main>
+
+    <ui:include src="templates/footer.xhtml"/>
+</h:body>
+</html>
