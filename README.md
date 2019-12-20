@@ -1,5 +1,5 @@
 # JAVA---Java-Web-Development-Basics
-Java Web: Java Web Development Basics - January 2019 @ SoftUni
+Java Web: Java Web Development Basics - **January 2019** @ SoftUni
 
 ---
 ---
@@ -154,3 +154,71 @@ Java Web: Java Web Development Basics - January 2019 @ SoftUni
 <br>
 
 ***<a title="EXODIA" href="https://github.com/TsvetanNikolov123/JAVA---Java-Web-Development-Basics/tree/master/25%20Exam#exodia">EXODIA</a>***<br/>
+
+---
+---
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+# JAVA---Java-Web-Development-Basics
+Java Web: Java Web Development Basics - **September 2019** @ SoftUni
+
+---
+---
+
+## 06 Workshop: Front-End
+
+### Tasks Requirements And Solutions
+<br>
+
+***<a title="SoftUni Courses" href="https://github.com/TsvetanNikolov123/JAVA---Java-Web-Development-Basics/tree/master/Java%20Web%20Basics%20-%20September%202019/06%20Workshop%20Front%20End#01-softuni-courses">SoftUni Courses</a>***<br/>
+
+---
+---
+
+## 10 Java EE Workshop – Servlets & JSP
+
+### Tasks Requirements And Solutions
+<br>
+
+***<a title="West Compass Car Dealer Shop" href="https://github.com/TsvetanNikolov123/JAVA---Java-Web-Development-Basics/tree/master/Java%20Web%20Basics%20-%20September%202019/10%20WORKSHOP%20JAVA%20EE%20SERVLETS%20%20JSP%20JPA#west-compass-car-dealer-shop">West Compass Car Dealer Shop</a>***<br/>
+
+---
+---
+
+## 13 Workshop: JSF
+
+### Tasks Requirements And Solutions
+<br>
+
+***<a title="Sboj.gb" href="https://github.com/TsvetanNikolov123/JAVA---Java-Web-Development-Basics/tree/master/Java%20Web%20Basics%20-%20September%202019/13%20WORKSHOP%20JAVA%20EE%20JSF%20%2B%20JPA#sbojgb">Sboj.gb</a>***<br/>
+
+---
+---
+
+## 14 Exam Preparation
+
+### Tasks Requirements And Solutions
+<br>
+
+***<a title="Casebook" href="https://github.com/TsvetanNikolov123/JAVA---Java-Web-Development-Basics/tree/master/Java%20Web%20Basics%20-%20September%202019/14%20EXAM%20PREPARATION#casebook">Casebook</a>***<br/>
+
+---
+---
+
+## 18 Retake Exam
+
+### Tasks Requirements And Solutions
+<br>
+
+***<a title="Andrey's" href="https://github.com/TsvetanNikolov123/JAVA---Java-Web-Development-Basics/tree/master/Java%20Web%20Basics%20-%20September%202019/18%20RetakeExamJavaWebBasic#andreys">Andrey's</a>***<br/>
+
+---
+---
