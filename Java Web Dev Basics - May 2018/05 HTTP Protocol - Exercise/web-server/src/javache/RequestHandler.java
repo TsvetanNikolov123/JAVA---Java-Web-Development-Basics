@@ -11,20 +11,25 @@ public class RequestHandler {
     private static final String HTML_EXTENSION_AND_SEPARATOR = ".html";
     private HttpRequest httpRequest;
     private HttpResponse httpResponse;
+    private HttpSessionStorage sessionStorage;
 
-    public RequestHandler() {
-
+    public RequestHandler(HttpSessionStorage sessionStorage) {
+        this.sessionStorage = sessionStorage;
     }
 
     public byte[] handleRequest(String requestContent) {
         this.httpRequest = new HttpRequestImpl(requestContent);
         this.httpResponse = new HttpResponseImpl();
 
+        byte[] result = null;
+
         if (this.httpRequest.getMethod().equals("GET")) {
-            return this.processGetRequest();
+            result = this.processGetRequest();
         }
 
-        return this.ok(new byte[0]);
+        this.sessionStorage.refreshSession();
+
+        return result;
     }
 
     private byte[] ok(byte[] content) {
@@ -121,13 +126,41 @@ public class RequestHandler {
 
     private byte[] processGetRequest() {
         if (this.httpRequest.getRequestUrl().equals("/")) {
+            //INDEX
+
             return this.processPageRequest("/index");
         } else if (this.httpRequest.getRequestUrl().equals("/login")) {
-            this.httpResponse.addCookie("lang", "en");
+            //LOGIN
+
+            HttpSession session = new HttpSessionImpl();
+            session.addAttribute("username", "Pesho");
+            this.sessionStorage.addSession(session);
+
+            this.httpResponse.addCookie("Javache", session.getId());
             return this.processPageRequest(this.httpRequest.getRequestUrl());
         } else if (this.httpRequest.getRequestUrl().equals("/expire")) {
-            this.httpResponse.addCookie("lang", "deleted; expires=Thu, 01 Jan 1970 00:00:00 GMT");
+            //LOGOUT
+
+            if (!this.httpRequest.getCookies().containsKey("Javache")) {
+                return this.redirect(("You must login to access this route!").getBytes(), "/");
+            }
+            String sessionId = this.httpRequest.getCookies().get("Javache").getValue();
+            this.sessionStorage.getById(sessionId).invalidate();
+
+            this.httpResponse.addCookie("Javache", "deleted; expires=Thu, 01 Jan 1970 00:00:00 GMT");
             return this.ok(("Successfully expired").getBytes());
+        } else if (this.httpRequest.getRequestUrl().contains("/forbidden")) {
+            // FORBIDDEN
+
+            if (!this.httpRequest.getCookies().containsKey("Javache")) {
+                return this.redirect(("You must login to access this route!").getBytes(), "/");
+            }
+
+            String sessionId = this.httpRequest.getCookies().get("Javache").getValue();
+            HttpSession session = this.sessionStorage.getById(sessionId);
+            String username = session.getAttributes().get("username").toString();
+
+            return this.ok(("Hello " + username + "!!!").getBytes());
         }
 
         return this.processResourceRequest();
