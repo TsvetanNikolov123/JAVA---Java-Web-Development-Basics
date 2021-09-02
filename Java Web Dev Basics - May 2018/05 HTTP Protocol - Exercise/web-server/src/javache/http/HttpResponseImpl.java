@@ -7,10 +7,12 @@ public class HttpResponseImpl implements HttpResponse {
     private HttpStatus statusCode;
     private HashMap<String, String> headers;
     private byte[] content;
+    private HashMap<String, HttpCookie> cookies;
 
     public HttpResponseImpl() {
         this.setContent(new byte[0]);
         this.headers = new HashMap<>();
+        this.cookies = new HashMap<>();
     }
 
     private byte[] getHeadersBytes() {
@@ -23,6 +25,18 @@ public class HttpResponseImpl implements HttpResponse {
                     .append(": ")
                     .append(header.getValue())
                     .append(System.lineSeparator());
+        }
+
+        if (!this.cookies.isEmpty()) {
+            result.append("Set-Cookie: ");
+
+            for (HttpCookie cookie : this.cookies.values()) {
+                result.append(cookie.toString()).append("; ");
+            }
+
+            /* remove "; " from last cookie */
+            result.replace(result.length() - 2, result.length(), "");
+            result.append(System.lineSeparator());
         }
 
         result.append(System.lineSeparator());
@@ -70,5 +84,10 @@ public class HttpResponseImpl implements HttpResponse {
     @Override
     public void addHeader(String header, String value) {
         this.headers.putIfAbsent(header, value);
+    }
+
+    @Override
+    public void addCookie(String name, String value) {
+        this.cookies.putIfAbsent(name, new HttpCookieImpl(name, value));
     }
 }

@@ -123,7 +123,11 @@ public class RequestHandler {
         if (this.httpRequest.getRequestUrl().equals("/")) {
             return this.processPageRequest("/index");
         } else if (this.httpRequest.getRequestUrl().equals("/login")) {
+            this.httpResponse.addCookie("lang", "en");
             return this.processPageRequest(this.httpRequest.getRequestUrl());
+        } else if (this.httpRequest.getRequestUrl().equals("/expire")) {
+            this.httpResponse.addCookie("lang", "deleted; expires=Thu, 01 Jan 1970 00:00:00 GMT");
+            return this.ok(("Successfully expired").getBytes());
         }
 
         return this.processResourceRequest();

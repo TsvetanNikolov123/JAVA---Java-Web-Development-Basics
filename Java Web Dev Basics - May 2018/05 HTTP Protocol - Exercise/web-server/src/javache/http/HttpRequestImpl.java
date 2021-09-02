@@ -9,12 +9,14 @@ public class HttpRequestImpl implements HttpRequest {
     private String requestUrl;
     private HashMap<String, String> headers;
     private HashMap<String, String> bodyParameters;
+    private HashMap<String, HttpCookie> cookies;
 
     public HttpRequestImpl(String requestContent) {
         this.initMethod(requestContent);
         this.initRequestUrl(requestContent);
         this.initHeaders(requestContent);
         this.initBodyParameters(requestContent);
+        this.initCookies();
     }
 
     private void initMethod(String requestContent) {
@@ -56,6 +58,24 @@ public class HttpRequestImpl implements HttpRequest {
         }
     }
 
+    private void initCookies() {
+        this.cookies = new HashMap<>();
+
+        if (this.headers.containsKey("Cookie")) {
+            return;
+        }
+
+        String cookiesHeader = this.headers.get("Cookie");
+        String[] allCookies = cookiesHeader.split("\\;\\s");
+
+        for (int i = 0; i < allCookies.length; i++) {
+            String[] cookieNameValuePair = allCookies[i].split("\\=");
+            this.cookies.putIfAbsent(
+                    cookieNameValuePair[0],
+                    new HttpCookieImpl(cookieNameValuePair[0], cookieNameValuePair[0]));
+        }
+    }
+
     @Override
     public HashMap<String, String> getHeaders() {
         return this.headers;
@@ -64,6 +84,11 @@ public class HttpRequestImpl implements HttpRequest {
     @Override
     public HashMap<String, String> getBodyParameters() {
         return this.bodyParameters;
+    }
+
+    @Override
+    public HashMap<String, HttpCookie> getCookies() {
+        return this.cookies;
     }
 
     @Override
