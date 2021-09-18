@@ -6,13 +6,9 @@ import java.util.List;
 
 public class HttpRequestImpl implements HttpRequest {
     private String method;
-
     private String requestUrl;
-
     private HashMap<String, String> headers;
-
     private HashMap<String, String> bodyParameters;
-
     private HashMap<String, HttpCookie> cookies;
 
     public HttpRequestImpl(String requestContent) {

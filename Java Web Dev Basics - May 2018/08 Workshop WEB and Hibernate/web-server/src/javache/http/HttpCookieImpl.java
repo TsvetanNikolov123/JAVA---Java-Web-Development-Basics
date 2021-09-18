@@ -2,7 +2,6 @@ package javache.http;
 
 public class HttpCookieImpl implements HttpCookie {
     private String name;
-
     private String value;
 
     public HttpCookieImpl(String name, String value) {

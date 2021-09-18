@@ -4,11 +4,8 @@ import java.util.HashMap;
 import java.util.UUID;
 
 public class HttpSessionImpl implements HttpSession {
-
     private String id;
-
     private boolean isValid;
-
     private HashMap<String, Object> attributes;
 
     public HttpSessionImpl() {

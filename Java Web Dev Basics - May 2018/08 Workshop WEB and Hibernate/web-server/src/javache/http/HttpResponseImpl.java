@@ -5,11 +5,8 @@ import java.util.Map;
 
 public class HttpResponseImpl implements HttpResponse {
     private HttpStatus statusCode;
-
     private HashMap<String, String> headers;
-
     private HashMap<String, HttpCookie> cookies;
-
     private byte[] content;
 
     public HttpResponseImpl() {
